@@ -1,3 +1,5 @@
+English | [中文](README_CN.md)
+
 # Lark Minutes Tasks
 
 An AI agent skill that reads Lark/Feishu meeting transcripts, extracts action items, and actually gets them done. Not just a to-do list generator. The agent executes the tasks for you.
@@ -22,6 +24,7 @@ Set a trigger phrase (like "hey agent" or anything you want). Say it during a me
 Drop `minutes.md` into your agent's commands directory:
 
 **Claude Code:**
+
 ```bash
 cp minutes.md ~/.claude/commands/minutes.md
 ```
@@ -50,15 +53,15 @@ The agent will walk you through the rest.
 
 ## Supported action types
 
-| Type | What the agent does |
-|------|-------------------|
-| Send message | Drafts the message, copies to clipboard for you to paste |
-| Schedule meeting | Checks calendars, finds free slots, creates the event |
-| Write document | Creates a Lark doc with the content |
-| Research | Searches web or Lark docs, summarizes findings |
-| Try a product | Finds the link/install instructions, sends to you |
-| Create task | Creates a Lark task with assignee and due date |
-| Read/review doc | Fetches the doc, reads it, gives you a summary |
+| Type             | What the agent does                                      |
+| ---------------- | -------------------------------------------------------- |
+| Send message     | Drafts the message, copies to clipboard for you to paste |
+| Schedule meeting | Checks calendars, finds free slots, creates the event    |
+| Write document   | Creates a Lark doc with the content                      |
+| Research         | Searches web or Lark docs, summarizes findings           |
+| Try a product    | Finds the link/install instructions, sends to you        |
+| Create task      | Creates a Lark task with assignee and due date           |
+| Read/review doc  | Fetches the doc, reads it, gives you a summary           |
 
 ## License
 
