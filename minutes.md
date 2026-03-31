@@ -22,7 +22,7 @@
 
 **Onboarding 配置（首次使用时）：** 首次使用 skill 时，需要完成以下配置，记录到 memory 中，后续不再重复询问：
 
-1. **用户身份**：通过 `larksuite-cli api GET /open-apis/authen/v1/user_info --as user` 自动获取当前用户姓名（用于在逐字稿中匹配发言人），无需手动询问
+1. **用户身份**：通过 `lark-cli api GET /open-apis/authen/v1/user_info --as user` 自动获取当前用户姓名（用于在逐字稿中匹配发言人），无需手动询问
 2. **Wake word**：询问用户想设置什么 wake word（比如"帮我"、"Hey assistant"等，任何词都行），默认为空（不启用）
 
 **识别规则：**
@@ -44,7 +44,7 @@
 
 检查 memory 中是否已有用户配置（姓名 + wake word）。如果没有，进行 onboarding：
 
-1. 自动调用飞书 API 获取用户姓名（`larksuite-cli api GET /open-apis/authen/v1/user_info --as user`）
+1. 自动调用飞书 API 获取用户姓名（`lark-cli api GET /open-apis/authen/v1/user_info --as user`）
 2. 询问 wake word 设置（默认为空，不启用）
 
 记录到 memory 后继续。如果已有配置则直接使用。
@@ -70,7 +70,7 @@
 ### 第二步：获取妙记元信息
 
 ```bash
-larksuite-cli minutes minutes get --params '{"minute_token": "TOKEN"}'
+lark-cli minutes minutes get --params '{"minute_token": "TOKEN"}'
 ```
 
 记录标题、时长、参会人信息。
@@ -78,7 +78,7 @@ larksuite-cli minutes minutes get --params '{"minute_token": "TOKEN"}'
 ### 第三步：获取逐字稿和 AI 产物
 
 ```bash
-larksuite-cli vc +notes --minute-tokens TOKEN
+lark-cli vc +notes --minute-tokens TOKEN
 ```
 
 这会下载逐字稿文件并返回 AI 总结、章节、待办等。读取返回的 transcript.txt 完整内容。
@@ -147,12 +147,12 @@ larksuite-cli vc +notes --minute-tokens TOKEN
 用户确认后，逐条执行。每完成一件，报告结果。可能用到的工具：
 
 - **发消息**：起草消息内容，用 pbcopy（macOS）或类似工具复制到剪贴板，告知用户去哪个聊天窗口粘贴发送。不要代替用户发送。
-- **约会议**：larksuite-cli calendar +suggestion → +create
-- **写文档**：larksuite-cli docs +create
-- **查文档**：larksuite-cli docs +search → docs +fetch
+- **约会议**：lark-cli calendar +suggestion → +create
+- **写文档**：lark-cli docs +create
+- **查文档**：lark-cli docs +search → docs +fetch
 - **搜索信息**：WebSearch / WebFetch
-- **创建任务**：larksuite-cli task 相关命令
-- **找人**：larksuite-cli contact +search-user
+- **创建任务**：lark-cli task 相关命令
+- **找人**：lark-cli contact +search-user
 
 如果某个执行步骤因为权限或 API 限制做不了，说明卡点，提供 workaround（比如复制内容到剪贴板）。
 
